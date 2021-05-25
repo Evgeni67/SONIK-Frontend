@@ -1,0 +1,22 @@
+    .question{
+        color:#00FF84 !important;
+        font-size:25px;
+        margin-top:30px;
+        text-align:center
+    }
+    .firstOption{
+        background-color:gainsboro;
+        border-radius: 25px 25px 25px 25px ;
+        margin-bottom: 10px;
+        text-align:center;
+        font-size: 24px;
+        padding:5px;
+    }
+    .secondOption{
+        background-color:gainsboro;
+        border-radius: 25px 25px 25px 25px ;
+        margin-bottom: 10px;
+        text-align:center;
+        font-size: 24px;
+        padding:5px;
+    }

@@ -1,0 +1,12 @@
+.mainNav{
+    background-color: #00FF84 !important;
+}
+.logo{
+    width:200px;
+    height:200px;
+    margin-bottom: -25px !important;
+    margin-top: -30px;
+}
+.navLink{
+    font-size:23px;padding: 5px;
+}

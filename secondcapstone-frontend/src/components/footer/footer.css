@@ -1,0 +1,33 @@
+.footerContainer{
+    background-color:#171717
+}
+.logoPic{
+    width:100px;
+    height:100px;
+    margin-top: -19px;
+    margin-left: 6px;
+    margin-bottom: 5px;
+}
+.weWork{
+    text-align:center !important
+}
+.icon{
+    color:#00FF84;
+    font-size:35px !important
+}
+.iconCol{
+    margin-top:-15px
+}
+.topBorder{
+    border-top:1px solid #00FF84;
+    margin-top: 30px;
+    color:#00FF84;
+    font-size: 15px;
+}
+.topBorder1{
+    border-top:1px solid #00FF84;
+    margin-top: 30px;
+    color:#00FF84;
+    font-size: 15px;
+    margin-left: 15px;
+}
