@@ -8,6 +8,47 @@
     margin-left: 6px;
     margin-bottom: 5px;
 }
+.modalHeading{
+    background-color:#171717
+}
+.inputBody{
+    background-color:#171717
+
+}
+.logoRow{
+    margin-bottom: -30px;
+    margin-top: -25px;
+}
+.modal-content{
+    border-radius: 20px !important;
+    border:1px solid #00FF84;
+}
+.modalLogo{
+    width:55%
+}
+.inputBody{
+    border-radius: 20px !important;
+box-shadow: 2px,2px,2px,2px #00FF84;
+}
+.loginTextArea {
+    background-color: #171717;
+    border: none;
+    border-bottom: 1px solid #00c161;
+    height: 30px;
+    margin-top: 5px;
+    color: #00ff84;
+    text-align: center;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none; /*remove the resize handle on the bottom right*/
+  }
+.question1 {
+    color: #ffffef;
+    font-size: 23px;
+    margin-top: 30px;
+    z-index:10
+  }
 .weWork{
     text-align:center !important
 }

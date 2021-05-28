@@ -10,3 +10,8 @@
 .navLink{
     font-size:23px;padding: 5px;
 }
+.navText{
+    color:#0D0E0E !important;
+    text-decoration:none !important;
+   font-weight:500
+}

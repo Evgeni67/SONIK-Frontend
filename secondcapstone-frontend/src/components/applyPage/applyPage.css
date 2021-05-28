@@ -1,0 +1,98 @@
+.applyContainer {
+  color: #ffffef;
+  background-color: #121212;
+  border: 3px solid #00ff84;
+  margin-top: 5px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+.question1 {
+  color: #ffffef;
+  font-size: 23px;
+  margin-top: 30px;
+  z-index:10
+}
+.redText {
+  border-bottom:1px solid red;margin-left:25%;margin-right:25%;
+}
+input[type=file]::file-selector-button {
+    border: 2px solid #00ff84;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #00ff84;
+    transition: 1s;
+    width: 100px !important;
+    margin-left:15%;
+    margin-bottom: 40px;
+   z-index: 10;
+  }
+  .pic{
+    margin-bottom: -100px;
+  }
+  input[type=file]::file-selector-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+    
+   
+  }
+.picOfYou{
+    margin-top: 100px !important;
+}
+.applyFormText {
+  color: #00ff84;
+  font-size: 30px;
+  margin-top: 15px;
+}
+.answerRow {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.answerTextArea {
+  background-color: #121212;
+  border: none;
+  border-bottom: 1px solid #00c161;
+  height: 30px;
+  margin-top: 5px;
+  color: #00ff84;
+  text-align: center;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none; /*remove the resize handle on the bottom right*/
+}
+.redUnderline{
+  border-bottom: 1px solid red !important;
+}
+.redUnderline:focus{
+  border-bottom: 2px solid red !important;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-bottom: 2px solid #00ff84;
+}
+button:focus {
+  outline: none;
+}
+.applyBtn {
+  background-color: #00ff84;
+  border: 1px solid #00ff84;
+  color: black;
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 5px;
+}
+.picPreview{
+    width:150px !important;
+
+}
+.picPreviewRow{
+    margin-top: -90px;
+    margin-bottom: 35px;
+}
+.pic{
+    color:#00ff84;
+    width: 100px;
+}
