@@ -3,6 +3,7 @@ import Home from "./components/home/homePage"
 import StartPage from "./components/startPage/startPage"
 import Footer from "./components/footer/footer"
 import ApplyPage from "./components/applyPage/applyPage"
+import HireRequests from "./components/hireRequests/hireRequests"
 import "bootstrap/dist/css/bootstrap.css";
 import React, { Component } from "react";
 import "./components/app.css"
@@ -32,6 +33,9 @@ class App extends Component {
     </Route>
     <Route path="/apply">
     <ApplyPage />
+    </Route>
+    <Route path="/hireRequests">
+    <HireRequests />
     </Route>
     <Footer />
     </Container>

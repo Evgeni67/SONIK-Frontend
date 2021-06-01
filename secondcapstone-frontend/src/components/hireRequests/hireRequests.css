@@ -1,0 +1,49 @@
+.firCol{
+    color:white
+}
+.reqestRow{
+    border: 1px solid #00ff84;
+    margin-top:10px;
+    border-radius:5px;
+    box-shadow: 3px 3px 3px 3px, 0px 0.5em 0.7em #00ff84;
+    transition:ease-in-out 0.4s
+}
+.request{
+    border-right:1px solid #00ff84;
+    display: flex;
+    justify-content: center;
+    color:#00ff84;
+}
+.notificationContaiener{
+    margin-bottom: 80px;
+}
+.loader{
+    width:70%
+}
+.loadingRow{
+    margin-top:110px
+}
+.lastRequest{
+    color:#00ff84;
+    display: flex;
+    justify-content: center
+}
+.totalRequests{
+    color:#00ff84;
+    font-size:30px;
+    margin-top:40px;
+}
+.connectionMessage{
+    color:#00ff84;
+    margin-bottom: 160px;
+}
+.button{
+    border:1px solid #00ff84;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    color:#00ff84;
+}
+.buttonsRow{
+    transition:ease-in-out 0.4s
+}

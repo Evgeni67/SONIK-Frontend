@@ -1,0 +1,40 @@
+.button{
+    border:1px solid #00ff84;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    color:#00ff84;
+}
+.buttonsRow{
+    transition:ease-in-out 0.2s
+}
+.request{
+    display: flex;
+    justify-content: center;
+    color:#00ff84;
+}
+.reqestRowClicked{
+    background-color:#00ff84;
+    border-radius:5px;
+    box-shadow: 3px 3px 3px 3px, 0px 0.5em 0.7em #00ff84;
+}
+.reqestClicked{
+    display: flex;
+    justify-content: center;
+    color:#171717;
+    font-weight:500
+
+}
+.reqest{
+    color:#00ff84;
+}
+.notificationBtn{
+        box-shadow: 3px 3px 3px 3px, 0px 0.4em 0.4em #00ff84;
+        border: 1px solid #00ff84;
+        border-radius: 10px;
+      text-align:center !important;
+      font-weight:500
+}
+.date{
+    color:#00ff84;
+}

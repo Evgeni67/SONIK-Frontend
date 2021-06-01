@@ -48,6 +48,10 @@ input[type=file]::file-selector-button {
   margin-left: 25%;
   margin-right: 25%;
 }
+.applyRow{
+  margin-left: 25%;
+  margin-right: 25%;
+}
 .answerTextArea {
   background-color: #121212;
   border: none;

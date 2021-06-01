@@ -1,17 +1,57 @@
-.mainNav{
-    background-color: #00FF84 !important;
+.mainNav {
+  background-color: #00ff84 !important;
 }
-.logo{
-    width:200px;
-    height:200px;
+.logo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: -25px !important;
+  margin-top: -30px;
+}
+.logo2{
+    width: 150px;
+    height: 150px;
     margin-bottom: -25px !important;
     margin-top: -30px;
 }
-.navLink{
-    font-size:23px;padding: 5px;
+.navLink {
+  font-size: 23px;
+  background-color: #00ff84;
+  width: 100px !important;
 }
-.navText{
-    color:#0D0E0E !important;
-    text-decoration:none !important;
-   font-weight:500
+.navLink2 {
+  font-size: 23px;
+  border: 1px solid #00ff84;
+  height: 50px;
+  margin-top: 45px;
+  box-shadow: 3px 3px 3px 3px, 0px 0.4em 0.4em #00ff84;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+.navLink3 {
+  font-size: 23px;
+
+  height: 50px;
+  margin-top: 45px;
+  margin-right: 10px;
+}
+.navText {
+  color: #0d0e0e !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+.navTextAdmin {
+  margin-top: 5px;
+  color: #00ff84 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+.adminBtn {
+  box-shadow: 3px 3px 3px 3px, 0px 0.4em 0.4em #00ff84;
+  border: 1px solid #00ff84;
+  border-radius: 10px;
+text-align:center !important;
+height:60%
+}
+.adminBtn1{
+    margin-top: 30px !important;
 }

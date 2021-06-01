@@ -1,0 +1,68 @@
+.profileContainer {
+  border-radius: 15px;
+  border-bottom: 2px solid #008342;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 39%,
+    rgba(0, 255, 132, 1) 100%
+  );
+}
+.profilePic {
+  border-radius: 40px !important;
+  width: 300px;
+  height: 260px;
+}
+.employeBio {
+  color: #00c161;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px solid #00c161;
+  padding-bottom: 15px;
+}
+
+.employeDetails {
+  color: #00c161;
+  margin-top: 1px;
+}
+.cardType {
+  width: 80px;
+  height: 35px;
+  margin-top: -5px;
+}
+.employeDetails2 {
+  color: #00c161;
+  margin-top: -43px;
+}
+.hireBtn {
+  background-color: #0d0e0e;
+  color: #00c161;
+  border: 1px solid #00c161;
+  transition: ease-in-out 0.5s;
+}
+.hireBtn:hover {
+  background-color: #00c161;
+  color: #0d0e0e;
+  border: 1px solid #0d0e0e;
+}
+.adminBtnsRow {
+  background-color: #0d0e0e;
+  border-radius: 5px;
+  color: #00ff84 !important;
+  font-weight: 500;
+}
+.adminbtn:hover {
+  background-color: red !important;
+}
+.adminbtn {
+  background-color: #0d0e0e;
+  color: #00ff84 !important;
+  font-weight: 500;
+}
+.employeName {
+  margin-top: 10px;
+  font-size: 23px;
+  color: #00ff84;
+  font-weight: 500;
+  margin-bottom: 10px;
+}

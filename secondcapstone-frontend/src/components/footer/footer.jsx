@@ -6,10 +6,28 @@ import logo from "./SONIK2.png";
 import { AiFillFacebook } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
-
+import { connect } from "react-redux";
+const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => ({
+ 
+  adminIn: () =>
+    dispatch({
+      type: "ADMIN_TRUE",
+    }),
+  adminOut: () =>
+    dispatch({
+      type: "ADMIN_FALSE",
+    }),
+});
 class Footer extends Component {
   state = {
-    show: true,
+    show: false,
+    name: "",
+    password: "",
+  };
+  checker = () => {
+    this.setState({ show: false });
+    this.props.adminIn()
   };
   render() {
     return (
@@ -28,9 +46,9 @@ class Footer extends Component {
             </Col>
           </Row>
           <Row className="footer d-flex justify-content-left ">
-            <Col className="topBorder1 d-flex justify-content-center mt-0">
+            <Col className="topBorder1 d-flex justify-content-center mt-0" onClick = {() => this.setState({show:true})}>
               {" "}
-              Admin Page
+              Admin
             </Col>
             <Col className="iconCol d-flex justify-content-center">
               <AiFillFacebook className="icon" />{" "}
@@ -42,41 +60,45 @@ class Footer extends Component {
             </Col>
           </Row>
         </Row>
-        <Modal className = "modalLogin"show={this.state.show}>
+        <Modal className="modalLogin" show={this.state.show}>
           <Modal.Body className="inputBody d-flex justify-content-center">
             <Container className="loginContainer">
-            <Row className="logoRow d-flex justify-content-center">
-              <img src={logo} className="modalLogo" />{" "}
-            </Row>
-              {" "}
+              <Row className="logoRow d-flex justify-content-center">
+                <img src={logo} className="modalLogo" />{" "}
+              </Row>{" "}
               <Row className="question1 d-flex justify-content-center">
-            {" "}
-            Name
-          </Row>
-          <Row className="answerRow d-flex justify-content-center">
-            <textarea
-              className="loginTextArea name"
-              onChange={(e) => this.setState({ name: e.currentTarget.value })}
-            >
-              {" "}
-            </textarea>
-          </Row> <Row className="question1 d-flex justify-content-center">
-            {" "}
-            Password
-          </Row>
-          <Row className="answerRow d-flex justify-content-center mb-5">
-            <textarea
-              className="loginTextArea name"
-              onChange={(e) => this.setState({ name: e.currentTarget.value })}
-            >
-              {" "}
-            </textarea>
-          </Row>
-          <Row className="answerRow d-flex justify-content-center mb-4">
-            <button className="applyBtn" onClick={() => this.checker()}>
-              Login{" "}
-            </button>
-          </Row>
+                {" "}
+                Name
+              </Row>
+              <Row className="answerRow d-flex justify-content-center">
+                <textarea
+                  className="loginTextArea name"
+                  onChange={(e) =>
+                    this.setState({ name: e.currentTarget.value })
+                  }
+                >
+                  {" "}
+                </textarea>
+              </Row>{" "}
+              <Row className="question1 d-flex justify-content-center">
+                {" "}
+                Password
+              </Row>
+              <Row className="answerRow d-flex justify-content-center mb-5">
+                <textarea
+                  className="loginTextArea name"
+                  onChange={(e) =>
+                    this.setState({ name: e.currentTarget.value })
+                  }
+                >
+                  {" "}
+                </textarea>
+              </Row>
+              <Row className="answerRow d-flex justify-content-center mb-4">
+                <button className="applyBtn" onClick={() => this.checker()}>
+                  Login{" "}
+                </button>
+              </Row>
             </Container>
           </Modal.Body>
         </Modal>
@@ -84,4 +106,4 @@ class Footer extends Component {
     );
   }
 }
-export default Footer;
+ export default connect(mapStateToProps, mapDispatchToProps)(Footer);

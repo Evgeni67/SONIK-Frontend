@@ -243,7 +243,7 @@ class ApplyPage extends Component {
               className="pic"
             >
               {!this.state.imageUploaded ? (
-                  <Row className="question1 picOfYou d-flex justify-content-center ">
+                  <Row className=" picOfYou d-flex justify-content-center ">
                   {" "}
                   Picture of you
                 </Row>
@@ -284,7 +284,7 @@ class ApplyPage extends Component {
          
 
          
-          <Row className="answerRow d-flex justify-content-center mb-5">
+          <Row className="applyRow d-flex justify-content-center mb-5">
             <button className="applyBtn" onClick={() => this.checker()}>
               Apply{" "}
             </button>
