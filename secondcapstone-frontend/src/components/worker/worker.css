@@ -59,6 +59,12 @@
   color: #00ff84 !important;
   font-weight: 500;
 }
+.editAreaStatus{
+  width:31%
+}
+.editAreaCSCS{
+  width:26%
+}
 .employeName {
   margin-top: 10px;
   font-size: 23px;

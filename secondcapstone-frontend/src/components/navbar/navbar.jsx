@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => ({
     }),
 });
 class NavbarItem extends Component {
+ 
   render() {
     return (
       <>
@@ -37,7 +38,7 @@ class NavbarItem extends Component {
                 Hiring Requests
               </Link>
             </Col>
-            <Col>
+            <Col className="d-flex justify-content-center">
               {" "}
               <img className="logo2" src={logo} />{" "}
             </Col>
