@@ -40,6 +40,10 @@
   border: 1px solid #00c161;
   transition: ease-in-out 0.5s;
 }
+.hireBtn2{
+  color: #00c161;
+  text-decoration: none;
+}
 .hireBtn:hover {
   background-color: #00c161;
   color: #0d0e0e;
@@ -58,6 +62,10 @@
   background-color: #0d0e0e;
   color: #00ff84 !important;
   font-weight: 500;
+}
+.editArea {
+  background-color: #0d0e0e;
+  color:#00ff84
 }
 .editAreaStatus{
   width:31%

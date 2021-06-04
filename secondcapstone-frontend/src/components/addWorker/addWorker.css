@@ -1,0 +1,16 @@
+.answerinput{
+    background-color:transparent;
+    -webkit-box-shadow: none; 
+    border:none;
+   border-bottom:  1px solid #00c161;
+   color:#00ff84;
+   text-align:center
+}
+.linkToHire{
+    color:#0D0E0E;
+    text-decoration:none
+}
+.linkToHire:hover{
+    color:#0D0E0E;
+    text-decoration:none
+}

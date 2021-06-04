@@ -12,10 +12,33 @@
         font-size: 24px;
         padding:5px;
     }
+    .borderBottom{
+        border-bottom: 1px solid #00ff84;
+        padding-bottom: 30px;
+    }
+    .studentsLabel{
+        background-color:#00ff84;
+        color:#171717 !important;
+        font-weight: 500;
+    }
+    .textInfo{
+        color:#00ff84
+    }
+    .textInfo2{
+        color:#00ff84;
+        text-align: center;
+    }
+    .borderLeft{
+        border-left: 1px solid #00ff84;
+    }
+    .test{
+        width: 100%;
+        box-shadow: 4px 4px 4px 4px, 0px 0.7em 4em #00ff84;
+    }
     .secondOption{
         background-color:gainsboro;
         border-radius: 25px 25px 25px 25px ;
-        margin-bottom: 10px;
+        margin-bottom: 19px;
         text-align:center;
         font-size: 24px;
         padding:5px;

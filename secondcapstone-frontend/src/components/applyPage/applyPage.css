@@ -61,9 +61,11 @@ input[type=file]::file-selector-button {
   color: #00ff84;
   text-align: center;
   -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
   resize: none; /*remove the resize handle on the bottom right*/
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #00ff84;
 }
 .redUnderline{
   border-bottom: 1px solid red !important;

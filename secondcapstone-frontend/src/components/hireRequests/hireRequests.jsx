@@ -45,7 +45,7 @@ class hireRequests extends Component {
 
     await fetch(url)
       .then((response) => response.json())
-      .then((data) => this.props.setWorkers(data));
+      .then((data) => this.setState({ hireRequests: data }));
     console.log(this.state.hireRequests);
    
     const that=this
@@ -63,12 +63,13 @@ class hireRequests extends Component {
               {" "}
               You have {this.state.hireRequests.length} new requests
             </Row>
-            {this.state.hireRequests.map((request) => (
+            {this.state.hireRequests.reverse().map((request) => (
               <>
                 {" "}
                 <Notification data={request} />
               </>
             ))}
+       
           </Container>
         ) : (
           <>

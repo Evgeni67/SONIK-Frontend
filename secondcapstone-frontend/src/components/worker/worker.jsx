@@ -4,6 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import "./worker.css";
 import { connect } from "react-redux";
 import loader from "./loader2.gif";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
   setWorkers: (workers) =>
@@ -11,17 +12,23 @@ const mapDispatchToProps = (dispatch) => ({
       type: "SET_NEW_WORKERS",
       payload: workers,
     }),
+    changeCurrentWorker: (id1) =>
+    dispatch({
+      type: "CHANGE_CURRENT_WORKER",
+      payload: id1,
+    }),
+   
 });
 class Worker extends Component {
   state = {
     editMode: false,
-    name:this.props.worker.name,
-    profileImg:this.props.worker.profileImg,
-    drivingLicense:this.props.worker.name,
-    status:this.props.worker.status,
-    location:this.props.worker.location,
-    bio:this.props.worker.bio,
-    cscsLevel:this.props.worker.cscsLevel
+    name: this.props.worker.name,
+    profileImg: this.props.worker.profileImg,
+    drivingLicense: this.props.worker.drivingLicense,
+    status: this.props.worker.status,
+    location: this.props.worker.location,
+    bio: this.props.worker.bio,
+    cscsLevel: this.props.worker.cscsLevel,
   };
   handleEditMode = () => {
     if (this.state.editMode) {
@@ -35,20 +42,21 @@ class Worker extends Component {
     await fetch(url + id, {
       method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body:  JSON.stringify({
-        name:this.state.name,
-    profileImg:this.state.profileImg,
-    drivingLicense:this.state.name,
-    status:this.state.status,
-    location:this.state.location,
-    bio:this.state.bio,
-    cscsLevel:this.state.cscsLevel
-      })
+      body: JSON.stringify({
+        name: this.state.name,
+        profileImg: this.state.profileImg,
+        drivingLicense: this.state.drivingLicense,
+        status: this.state.status,
+        location: this.state.location,
+        bio: this.state.bio,
+        cscsLevel: this.state.cscsLevel,
+      }),
     })
       .then((response) => response.json())
       .then((data) => this.props.setWorkers(data));
+    this.setState({ editMode: false });
   };
   deleteWorker = async (id) => {
     console.log(id);
@@ -110,7 +118,9 @@ class Worker extends Component {
                 <textarea
                   className="editArea"
                   defaultValue={this.props.worker.name}
-                  onChange = {(e) => this.setState({name:e.currentTarget.value})}
+                  onChange={(e) =>
+                    this.setState({ name: e.currentTarget.value })
+                  }
                 />
               ) : (
                 this.props.worker.name
@@ -121,7 +131,9 @@ class Worker extends Component {
                 <textarea
                   className="editArea"
                   defaultValue={this.props.worker.bio}
-                  onChange = {(e) => this.setState({bio:e.currentTarget.value})}
+                  onChange={(e) =>
+                    this.setState({ bio: e.currentTarget.value })
+                  }
                 />
               ) : (
                 this.props.worker.bio
@@ -134,7 +146,9 @@ class Worker extends Component {
                 <textarea
                   className="editArea"
                   defaultValue={this.props.worker.location}
-                  onChange = {(e) => this.setState({location:e.currentTarget.value})}
+                  onChange={(e) =>
+                    this.setState({ location: e.currentTarget.value })
+                  }
                 />
               ) : (
                 this.props.worker.location
@@ -147,7 +161,9 @@ class Worker extends Component {
                 <textarea
                   className="editArea"
                   defaultValue={this.props.worker.drivingLicense}
-                  onChange = {(e) => this.setState({drivingLicense:e.currentTarget.value})}
+                  onChange={(e) =>
+                    this.setState({ drivingLicense: e.currentTarget.value })
+                  }
                 />
               ) : (
                 this.props.worker.drivingLicense
@@ -159,11 +175,14 @@ class Worker extends Component {
             </Row>
             <Row className="employeDetails d-flex flex-postion-left">
               {" "}
-              Status:{this.state.editMode ? (
+              Status:
+              {this.state.editMode ? (
                 <textarea
-                  className="editAreaStatus"
+                  className="editAreaStatus editArea"
                   defaultValue={this.props.worker.status}
-                  onChange = {(e) => this.setState({status:e.currentTarget.value})}
+                  onChange={(e) =>
+                    this.setState({ status: e.currentTarget.value })
+                  }
                 />
               ) : (
                 this.props.worker.status
@@ -171,26 +190,34 @@ class Worker extends Component {
             </Row>
             <Row className="employeDetails d-flex flex-postion-left"> </Row>
             <Row className="employeDetails2 d-flex flex-row-reverse ">
-            {this.state.editMode ? (
+              {this.state.editMode ? (
                 <textarea
-                  className="editAreaCSCS"
+                  className="editAreaCSCS editArea"
                   defaultValue={this.props.worker.cscsLevel}
-                  onChange = {(e) => this.setState({status:e.currentTarget.value})}
+                  onChange={(e) =>
+                    this.setState({ status: e.currentTarget.value })
+                  }
                 />
               ) : (
                 <img
-                className="cardType"
-                src="https://prikachi.net/images/bsUWp.jpg"
-              />
+                  className="cardType"
+                  src="https://prikachi.net/images/bsUWp.jpg"
+                />
               )}
-             
               CSCS Level:
             </Row>
             <Row className="d-flex justify-content-center mb-4 mt-4">
-            {this.state.editMode ? (
-              <button className="hireBtn" onClick = {()=> this.editWorker(this.props.worker._id)}>Edit</button>
+              {this.state.editMode ? (
+                <button
+                  className="hireBtn"
+                  onClick={() => this.editWorker(this.props.worker._id)}
+                >
+                  Edit
+                </button>
               ) : (
-                <button className="hireBtn">Hire</button>
+             
+                <button className="hireBtn" onClick = {() => this.props.changeCurrentWorker(this.props.worker._id)}>   <Link to = "/hireForm" className="hireBtn2">Hire  </Link></button>
+              
               )}
             </Row>
           </Row>

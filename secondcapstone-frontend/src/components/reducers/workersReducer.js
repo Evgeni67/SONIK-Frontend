@@ -5,7 +5,11 @@ export default function (state = {}, action) {
           ...state,
           workers: action.payload,
         };
-     
+        case "CHANGE_CURRENT_WORKER":
+          return {
+            ...state,
+            currentWorker: action.payload,
+          };
       default:
         return state;
     }

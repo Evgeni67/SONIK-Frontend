@@ -43,7 +43,7 @@ class NavbarItem extends Component {
               <img className="logo2" src={logo} />{" "}
             </Col>
             <Col className="adminBtn adminBtn1">
-              <Link to="hireRequests" className="navTextAdmin">
+              <Link to="/applyRequests" className="navTextAdmin">
                 Apply Request
               </Link>
             </Col>

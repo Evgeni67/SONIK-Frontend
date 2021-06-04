@@ -15,6 +15,7 @@ export const initialState = {
   },
   workers: {
     workers: [],
+    currentWorker:""
   },
 };
 const bigReducer = combineReducers({ loading: loadingReducers, admin:adminReducer,workers:workersReducer });

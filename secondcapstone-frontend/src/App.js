@@ -1,9 +1,12 @@
 import NavbarItem from "./components/navbar/navbar"
-import Home from "./components/home/homePage"
+import HirePage from "./components/hirePage/hirePage"
 import StartPage from "./components/startPage/startPage"
 import Footer from "./components/footer/footer"
 import ApplyPage from "./components/applyPage/applyPage"
 import HireRequests from "./components/hireRequests/hireRequests"
+import AddWorker from "./components/addWorker/AddWorker"
+import HireForm from "./components/hireForm/hireForm"
+import ApplyRequests from "./components/applyRequests/applyRequests"
 import "bootstrap/dist/css/bootstrap.css";
 import React, { Component } from "react";
 import "./components/app.css"
@@ -26,7 +29,7 @@ class App extends Component {
     <Container className = "mainContainer">
     <NavbarItem className = ""/>
     <Route path="/hire">
-    <Home />
+    <HirePage />
     </Route>
     <Route path="/home">
     <StartPage />
@@ -37,6 +40,16 @@ class App extends Component {
     <Route path="/hireRequests">
     <HireRequests />
     </Route>
+    <Route path="/addWorker">
+    <AddWorker />
+    </Route>
+    <Route path="/hireForm">
+    <HireForm/>
+    </Route>
+    <Route path="/applyRequests">
+    <ApplyRequests/>
+    </Route>
+    
     <Footer />
     </Container>
     </Router>
