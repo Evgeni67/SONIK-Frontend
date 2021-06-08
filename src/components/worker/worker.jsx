@@ -38,7 +38,7 @@ class Worker extends Component {
     }
   };
   editWorker = async (id) => {
-    const url =  process.env.URL +"/workers/editWorker/";
+    const url =  process.env.REACT_APP_URL +"/workers/editWorker/";
     await fetch(url + id, {
       method: "PUT",
       headers: {
