@@ -38,7 +38,7 @@ class Worker extends Component {
     }
   };
   editWorker = async (id) => {
-    const url =  process.env.REACT_APP_URL +"/workers/editWorker/";
+    const url =  process.env.URL +"/workers/editWorker/";
     await fetch(url + id, {
       method: "PUT",
       headers: {
@@ -61,10 +61,12 @@ class Worker extends Component {
   };
   deleteWorker = async (id) => {
     console.log(id);
-    const url =  process.env.REACT_APP_URL +"/workers/removeWorker/";
-    await fetch(url + id, {
+    const url =  process.env.REACT_APP_URL +"/workers/removeWorker/" + id;
+    await fetch(url , {
       method: "DELETE",
-      "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+      },
     })
       .then((response) => response.json())
       .then((data) => this.props.setWorkers(data));
