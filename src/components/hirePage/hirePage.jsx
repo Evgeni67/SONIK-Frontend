@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./homePage.css";
 import { connect } from "react-redux";
@@ -26,9 +26,13 @@ class Home extends Component {
   state = {
     workers: [],
     loaded: false,
+    editMode: true,
+    showAddContainer: false,
   };
+
   componentDidMount = async () => {
-    const url = "http://localhost:9999/workers/getWorkers";
+    console.log(process.env.REACT_APP_URL)
+    const url =  process.env.REACT_APP_URL +"/workers/getWorkers";
     await fetch(url)
       .then((response) => response.json())
       .then((data) => this.props.setWorkers(data));
@@ -37,6 +41,8 @@ class Home extends Component {
       that.setState({ loaded: true });
     }, 2000);
   };
+
+  
   render() {
     return (
       <>
@@ -46,7 +52,7 @@ class Home extends Component {
         {this.state.loaded ? (
           <>
             <Row>
-              {this.props.workers.workers.map((workerToPass) => (
+              {this.props.workers.workers.reverse().map((workerToPass) => (
                 <Col xs={12} s={12} md={6} lg={4}>
                   <Worker
                     worker={workerToPass}
@@ -62,7 +68,16 @@ class Home extends Component {
 
                     <Col className="addWorkerBtn d-flex justify-content-center">
                       {" "}
-                      <Link to="/addWorker" className = "addWorkerBtn">Add a new employe</Link>
+                      <Link
+                        to="/addWorker"
+                        className="addWorkerBtn"
+                        onClick={() =>
+                          this.setState({ showAddContainer: true })
+                        }
+                      >
+                        Add a new employe
+                      </Link>
+                     
                     </Col>
                     <Col> </Col>
                   </Row>

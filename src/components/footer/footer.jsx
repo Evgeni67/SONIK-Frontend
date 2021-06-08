@@ -7,9 +7,9 @@ import { AiFillFacebook } from "react-icons/ai";
 import { AiFillInstagram } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { connect } from "react-redux";
+import { axios } from "axios";
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
- 
   adminIn: () =>
     dispatch({
       type: "ADMIN_TRUE",
@@ -25,10 +25,29 @@ class Footer extends Component {
     name: "",
     password: "",
   };
-  checker = () => {
-    this.setState({ show: false });
-    this.props.adminIn()
+  saveTokensLocally = (data) => {
+     localStorage.setItem("accessToken", data.accessToken);
+     localStorage.setItem("refreshToken", data.refreshToken);
+     this.props.adminIn()
+     this.setState({show:false})
+  } 
+  login = async () => {
+    const url =  process.env.REACT_APP_URL +"/admin/login";
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: this.state.name,
+        password: this.state.password,
+      }),
+    };
+    const res = await fetch(url, requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.saveTokensLocally(data));
   };
+
   render() {
     return (
       <>
@@ -46,7 +65,10 @@ class Footer extends Component {
             </Col>
           </Row>
           <Row className="footer d-flex justify-content-left ">
-            <Col className="topBorder1 d-flex justify-content-center mt-0" onClick = {() => this.setState({show:true})}>
+            <Col
+              className="topBorder1 d-flex justify-content-center mt-0"
+              onClick={() => this.setState({ show: true })}
+            >
               {" "}
               Admin
             </Col>
@@ -71,31 +93,28 @@ class Footer extends Component {
                 Name
               </Row>
               <Row className="answerRow d-flex justify-content-center">
-                <textarea
+                <input
                   className="loginTextArea name"
                   onChange={(e) =>
                     this.setState({ name: e.currentTarget.value })
                   }
-                >
-                  {" "}
-                </textarea>
+                />
               </Row>{" "}
               <Row className="question1 d-flex justify-content-center">
                 {" "}
                 Password
               </Row>
               <Row className="answerRow d-flex justify-content-center mb-5">
-                <textarea
+                <input
                   className="loginTextArea name"
+                  type="password"
                   onChange={(e) =>
-                    this.setState({ name: e.currentTarget.value })
+                    this.setState({ password: e.currentTarget.value })
                   }
-                >
-                  {" "}
-                </textarea>
+                />
               </Row>
               <Row className="answerRow d-flex justify-content-center mb-4">
-                <button className="applyBtn" onClick={() => this.checker()}>
+                <button className="applyBtn" onClick={() => this.login()}>
                   Login{" "}
                 </button>
               </Row>
@@ -106,4 +125,4 @@ class Footer extends Component {
     );
   }
 }
- export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

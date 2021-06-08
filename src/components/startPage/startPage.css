@@ -4,6 +4,12 @@
         margin-top:30px;
         text-align:center
     }
+    .connectionText{
+        color:#00FF84 !important;
+        font-size:20px;
+        margin-top:10px !important;
+        text-align:center
+    }
     .firstOption{
         background-color:gainsboro;
         border-radius: 25px 25px 25px 25px ;
@@ -16,6 +22,10 @@
         border-bottom: 1px solid #00ff84;
         padding-bottom: 30px;
     }
+    .reduceMt{
+        margin-top:0px !important;
+        margin-bottom: 40px;
+    }
     .studentsLabel{
         background-color:#00ff84;
         color:#171717 !important;
@@ -27,16 +37,28 @@
     .textInfo2{
         color:#00ff84;
         text-align: center;
+
+        margin-left: 10px !important;
     }
     .borderLeft{
         border-left: 1px solid #00ff84;
+        padding-left: 20px;
     }
     .test{
-        width: 100%;
+        width: 95%;
         box-shadow: 4px 4px 4px 4px, 0px 0.7em 4em #00ff84;
     }
     .secondOption{
         background-color:gainsboro;
+        border-radius: 25px 25px 25px 25px ;
+        margin-bottom: 19px;
+        text-align:center;
+        font-size: 24px;
+        padding:5px;
+    }
+    .secondOption2{
+        background-color:#00ff84;
+        color:#171717;
         border-radius: 25px 25px 25px 25px ;
         margin-bottom: 19px;
         text-align:center;

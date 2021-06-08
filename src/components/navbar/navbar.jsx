@@ -33,17 +33,17 @@ class NavbarItem extends Component {
         {this.props.admin.admin ? (
           <Row className="d-flex justify-content-center ml-1 mr-1">
             {" "}
-            <Col className="adminBtn adminBtn1">
-              <Link to="hireRequests" className="navTextAdmin ">
-                Hiring Requests
+            <Col className=" d-flex justify-content-center adminBtn1">
+              <Link to="hireRequests" className="adminBtn navTextAdmin ">
+                Hire Requests
               </Link>
             </Col>
             <Col className="d-flex justify-content-center">
               {" "}
               <img className="logo2" src={logo} />{" "}
             </Col>
-            <Col className="adminBtn adminBtn1">
-              <Link to="/applyRequests" className="navTextAdmin">
+            <Col className="d-flex justify-content-center adminBtn1">
+              <Link to="/applyRequests" className="navTextAdmin adminBtn">
                 Apply Request
               </Link>
             </Col>

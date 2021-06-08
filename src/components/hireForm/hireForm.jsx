@@ -63,7 +63,7 @@ class HireForm extends Component {
       post.append("postPic", this.state.image);
       if (post) {
         let response = await fetch(
-          " http://localhost:9999/apply/addPictureToApply/" + postId,
+          process.env.REACT_APP_URL +"/apply/addPictureToApply/" + postId,
           {
             method: "POST",
             body: post,
@@ -89,7 +89,7 @@ class HireForm extends Component {
       workerId: this.state.workerId,
     };
     try {
-      const response = await fetch("http://localhost:9999/hireRequest/addRequest", {
+      const response = await fetch( process.env.REACT_APP_URL +"/hireRequest/addRequest", {
         method: "POST",
         body: JSON.stringify(applyData),
         headers: new Headers({

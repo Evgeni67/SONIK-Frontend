@@ -33,9 +33,16 @@ class ApplyRequests extends Component {
     loaded: false,
   };
   componentDidMount = async () => {
-    const url = "http://localhost:9999/apply/getApplies";
-
-    await fetch(url)
+    const url =  process.env.REACT_APP_URL +"/apply/getApplies";
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+      }
+     
+    };
+    await fetch(url, requestOptions)
       .then((response) => response.json())
       .then((data) => this.setState({ applyRequests: data }));
     console.log(this.state.applyRequests);
@@ -45,14 +52,59 @@ class ApplyRequests extends Component {
       that.setState({ loaded: true });
     }, 3000);
   };
+  deleteApply = async (id) => {
+    this.setState({ loaded: false });
+    const url =  process.env.REACT_APP_URL +"/apply/declineApply/" + id;
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+      }
+     
+    };
+    await fetch(url, requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.setState({ applyRequests: data }));
+    console.log(this.state.applyRequests);
+
+    const that = this;
+    setTimeout(function () {
+      that.setState({ loaded: true });
+    }, 1400);
+  };
+ 
+  addWorker = async (request) => {
+    console.log(request)
+    const url =  process.env.REACT_APP_URL +"/workers/addWorker";
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({
+        name: request.name,
+        profileImg: request.pic,
+        drivingLicense: request.drivingLicense,
+        status: request.status,
+        location: request.location,
+        bio: request.bio,
+        cscsLevel: request.cscsCard,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => this.props.setWorkers(data));
+  };
+ 
+  
   render() {
     return (
       <>
         {this.state.loaded ? (
           <Container className="notificationContaiener">
-            <Row className="d-flex justify-content-center totalRequests">
+            <Row className="d-flex justify-content-center totalApplyRequests">
               {" "}
-              You have {this.state.applyRequests.length} new requests
+              You have {this.state.applyRequests.length} new apply requests
             </Row>
             {this.state.applyRequests.reverse().map((request) => (
               <>
@@ -84,7 +136,7 @@ class ApplyRequests extends Component {
                     </Row>
                     <Row className="employeDetails d-flex flex-postion-left">
                       {" "}
-                      Status:
+                      Status: 
                       {request.status}
                     </Row>
                     <Row className="employeDetails d-flex flex-postion-left">
@@ -94,8 +146,18 @@ class ApplyRequests extends Component {
                     </Row>
                     <Row className="employeDetails d-flex flex-postion-left">
                       {" "}
+                   Phone: 
+                      {request.phoneNumber}
                     </Row>
-                    <Row className="employeDetails2 d-flex flex-row-reverse ">
+                    <Row className="employeDetails d-flex flex-postion-left">
+                      {" "}
+                   Email: 
+                      {request.email}
+                    </Row>
+                    <Row className="employeDetails d-flex flex-postion-left">
+                      {" "}
+                    </Row>
+                    <Row className="employeDetails d-flex flex-row-reverse mt-3">
                       <img
                         className="cardType"
                         src="https://prikachi.net/images/bsUWp.jpg"
@@ -105,14 +167,16 @@ class ApplyRequests extends Component {
                     <Row className="d-flex justify-content-center mb-4 mt-4">
                       <button
                         className="hireBtn"
+                        onClick = {() => this.addWorker(request)}
                       >
                         {" "}
                           Confrim{" "}
                       </button>
                     </Row>
-                    <Row className="d-flex justify-content-center mb-4 mt-4">
+                    <Row className="d-flex justify-content-center mb-4 mt-1">
                       <button
                         className="hireBtn"
+                        onClick = {() => this.deleteApply(request._id)}
                       >
                         {" "}
                           Delete{" "}

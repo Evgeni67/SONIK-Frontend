@@ -50,7 +50,9 @@
   border: 1px solid #00ff84;
   border-radius: 10px;
 text-align:center !important;
-height:60%
+height:45%;
+padding-bottom:52px;
+margin-bottom: -17px;
 }
 .adminBtn1{
     margin-top: 30px !important;

@@ -41,9 +41,14 @@ class hireRequests extends Component {
     loaded: false,
   };
   componentDidMount = async () => {
-    const url = "http://localhost:9999/hireRequest/getRequests";
-
-    await fetch(url)
+    const url =  process.env.REACT_APP_URL +"/hireRequest/getRequests";
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+      }
+    }
+    await fetch(url,requestOptions)
       .then((response) => response.json())
       .then((data) => this.setState({ hireRequests: data }));
     console.log(this.state.hireRequests);
@@ -52,7 +57,7 @@ class hireRequests extends Component {
     setTimeout(function(){
         that.setState({ loaded: true });
 
-}, 3000); 
+}, 1400); 
   };
   render() {
     return (

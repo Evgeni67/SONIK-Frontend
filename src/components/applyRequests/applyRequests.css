@@ -1,0 +1,6 @@
+.totalApplyRequests {
+    display:flex !important;justify-content: center !important;
+    color:#00ff84;
+    font-size:23px;
+    margin-top: 31px;
+}

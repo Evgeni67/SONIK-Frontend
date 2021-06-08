@@ -32,6 +32,7 @@ class ApplyPage extends Component {
     bio: "",
     pic: "1",
   };
+  
   checker = () => {
     if(this.state.email === ""){
     const email = document.querySelector(".email")
@@ -82,7 +83,7 @@ class ApplyPage extends Component {
        post.append("postPic", this.state.image);
       if (post) {
         let response = await fetch(
-           " http://localhost:9999/apply/addPictureToApply/" + postId,
+          process.env.REACT_APP_URL +"/apply/addPictureToApply/" + postId,
           {
             method: "POST",
             body: post,
@@ -112,7 +113,7 @@ class ApplyPage extends Component {
       workInTheUk: this.state.workInTheUk
     };
     try {
-      const response = await fetch("http://localhost:9999/apply/addApply", {
+      const response = await fetch( process.env.REACT_APP_URL +"/apply/addApply", {
         method: "POST",
         body: JSON.stringify(applyData),
         headers: new Headers({

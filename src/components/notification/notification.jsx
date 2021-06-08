@@ -29,6 +29,17 @@ class Notification extends Component {
   state = {
     showButton: false,
   };
+  deleteNotification = async () => {
+    console.log(this.props.data._id)
+    const url =  process.env.REACT_APP_URL +"/hireRequest/deleteRequest/" +  this.props.data._id;
+    await fetch(url , {
+      method: "DELETE",
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+      }
+    })
+      window.location = window.location
+  };
   handleButtons = () => {
     this.state.showButton
       ? this.setState({ showButton: false })
@@ -37,7 +48,6 @@ class Notification extends Component {
   render() {
     return (
       <>
-       
         <Row
           className={
             this.state.showButton ? "reqestRowClicked mt-4" : "reqestRow mt-4"
@@ -62,8 +72,10 @@ class Notification extends Component {
           >
             Read{" "}
           </Col>
-          <Col className = "date d-flex justify-content-center">{this.props.data.createdAt.slice(0,10)}</Col>
-          <Col className="button">Delete </Col>
+          <Col className="date d-flex justify-content-center">
+            {this.props.data.createdAt.slice(0, 10)}
+          </Col>
+          <Col className="button" onClick = {() => this.deleteNotification()}>Delete </Col>
         </Row>
         <Modal className="modalLogin" show={this.state.showInfo}>
           <Modal.Body className="inputBody d-flex justify-content-center">
@@ -127,14 +139,20 @@ class Notification extends Component {
               </Row>
 
               <Row className=" d-flex justify-content-center mb-4">
-                <Col className = "d-flex justify-content-center">
-                  <button className="notificationBtn " onClick = {()=>this.setState({showInfo:false})}>
+                <Col className="d-flex justify-content-center">
+                  <button
+                    className="notificationBtn "
+                    onClick={() => this.setState({ showInfo: false })}
+                  >
                     Close{" "}
                   </button>
                 </Col>
                 <Col></Col>
-                <Col className = "d-flex justify-content-center">
-                  <button className="notificationBtn ">
+                <Col className="d-flex justify-content-center">
+                  <button
+                    className="notificationBtn "
+                    onClick={() => this.deleteNotification()}
+                  >
                     Delete{" "}
                   </button>
                 </Col>

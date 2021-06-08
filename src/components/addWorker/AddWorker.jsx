@@ -29,7 +29,7 @@ class AddWorker extends Component {
        post.append("postPic", this.state.profileImg);
       if (post) {
         let response = await fetch(
-           " http://localhost:9999/workers/addPictureToWorker/" + postId,
+           process.env.REACT_APP_URL + "/workers/addPictureToWorker/" + postId,
           {
             method: "POST",
             body: post,
@@ -45,7 +45,7 @@ class AddWorker extends Component {
     }
   };
   addWorker = async () => {
-    const url = "http://localhost:9999/workers/addWorker";
+    const url =  process.env.REACT_APP_URL +"/workers/addWorker";
     await fetch(url, {
       method: "POST",
       headers: {
