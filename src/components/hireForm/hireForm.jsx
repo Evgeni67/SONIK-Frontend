@@ -13,9 +13,10 @@ import {
 } from "react-bootstrap";
 import "./hireForm.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import logo from "./SONIK2.png";
 class HireForm extends Component {
   state = {
+    showModal:false,
     submitApply: true,
     applyId: "",
     firstName: "",
@@ -54,6 +55,7 @@ class HireForm extends Component {
 
     if (this.state.submitApply) {
       this.addRequest();
+     
     }
   };
   postImage = async (postId) => {
@@ -97,7 +99,9 @@ class HireForm extends Component {
         }),
       });
       if (response.ok) {
+        this.setState({showModal:true})
        console.log("ok")
+       console.log(this.state.showModal)
       }
     } catch (e) {
       console.log(e); // Error
@@ -178,6 +182,28 @@ class HireForm extends Component {
             </button>
           </Row>
         </Container>
+          <Modal className="modalLogin" show={this.state.showModal}>
+          <Modal.Body className="inputBody d-flex justify-content-center">
+            <Container className="loginContainer">
+              <Row className="logoRow d-flex justify-content-center">
+                <img src={logo} className="modalLogo" />{" "}
+              </Row>{" "}
+              <Row className="question1 d-flex justify-content-center text-align-center">
+                {" "}
+                Thank you for your request. We will get in touch with you in the next 24 hours
+              </Row>
+             
+             
+              <Row className="answerRow d-flex justify-content-center mb-4 mt-5">
+                <Link to ="/home">
+                <button className="applyBtn" >
+                  Go to the home page{" "}
+                </button>
+                </Link>
+              </Row>
+            </Container>
+          </Modal.Body>
+        </Modal>
       </>
     );
   }
