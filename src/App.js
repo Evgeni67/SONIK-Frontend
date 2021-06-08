@@ -23,8 +23,8 @@ import {
 
 class App extends Component {
   componentDidMount = () => {
-    if(window.location.href === "http://localhost:3000/"){
-     window.location.href = "http://localhost:3000/home"
+    if(window.location.href === "https://sonik-construction.herokuapp.com/"){
+     window.location.href = "https://sonik-construction.herokuapp.com//home"
     }
   };
   render() {
