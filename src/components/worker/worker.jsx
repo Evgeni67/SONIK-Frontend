@@ -12,12 +12,11 @@ const mapDispatchToProps = (dispatch) => ({
       type: "SET_NEW_WORKERS",
       payload: workers,
     }),
-    changeCurrentWorker: (id1) =>
+  changeCurrentWorker: (id1) =>
     dispatch({
       type: "CHANGE_CURRENT_WORKER",
       payload: id1,
     }),
-   
 });
 class Worker extends Component {
   state = {
@@ -38,12 +37,12 @@ class Worker extends Component {
     }
   };
   editWorker = async (id) => {
-    const url =  process.env.REACT_APP_URL +"/workers/editWorker/";
+    const url = process.env.REACT_APP_URL + "/workers/editWorker/";
     await fetch(url + id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({
         name: this.state.name,
@@ -61,11 +60,11 @@ class Worker extends Component {
   };
   deleteWorker = async (id) => {
     console.log(id);
-    const url =  process.env.REACT_APP_URL +"/workers/removeWorker/" + id;
-    await fetch(url , {
+    const url = process.env.REACT_APP_URL + "/workers/removeWorker/" + id;
+    await fetch(url, {
       method: "DELETE",
       headers: {
-        "Authorization" : `Bearer ${localStorage.getItem("accessToken")}`
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((response) => response.json())
@@ -179,7 +178,7 @@ class Worker extends Component {
             </Row>
             <Row className="employeDetails d-flex flex-postion-left">
               {" "}
-              Status:
+              Status: 
               {this.state.editMode ? (
                 <textarea
                   className="editAreaStatus editArea"
@@ -219,9 +218,17 @@ class Worker extends Component {
                   Edit
                 </button>
               ) : (
-             
-                <button className="hireBtn" onClick = {() => this.props.changeCurrentWorker(this.props.worker._id)}>   <Link to = "/hireForm" className="hireBtn2">Hire  </Link></button>
-              
+                <button
+                  className="hireBtn"
+                  onClick={() =>
+                    this.props.changeCurrentWorker(this.props.worker._id)
+                  }
+                >
+                  {" "}
+                  <Link to="/hireForm" className="hireBtn2">
+                    Hire{" "}
+                  </Link>
+                </button>
               )}
             </Row>
           </Row>
